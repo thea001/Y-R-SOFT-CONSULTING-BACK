@@ -7,7 +7,7 @@ from database import engine, SessionLocal, Base
 
 from auth import verify_password, create_access_token
 
-
+models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Leads API")
 
