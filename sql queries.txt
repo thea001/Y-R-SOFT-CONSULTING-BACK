@@ -1,0 +1,23 @@
+CREATE TABLE leads (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    lead_type VARCHAR(50),
+    name VARCHAR(255),
+    email VARCHAR(255),
+    country_code VARCHAR(10),
+    phone VARCHAR(50),
+    company VARCHAR(255),
+    service VARCHAR(255),
+    message TEXT,
+    contact_method VARCHAR(50),
+    discovery_call BOOLEAN,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
