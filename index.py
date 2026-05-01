@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Depends
+from fastapi import FastAPI, Depends, HTTPException
 from sqlalchemy.orm import Session
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -8,8 +8,7 @@ from database import engine, SessionLocal, Base
 from auth import verify_password, create_access_token
 
 
-# Create tables
-Base.metadata.create_all(bind=engine)
+
 
 app = FastAPI(title="Leads API")
 
