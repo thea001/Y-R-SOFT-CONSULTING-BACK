@@ -9,7 +9,6 @@ from auth import verify_password, create_access_token
 
 
 
-
 app = FastAPI(title="Leads API")
 
 # CORS (VERY IMPORTANT for React)
