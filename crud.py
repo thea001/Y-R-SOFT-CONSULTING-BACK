@@ -22,3 +22,12 @@ def create_lead(db: Session, lead: schemas.LeadCreate):
 
 def get_all_leads(db: Session):
     return db.query(models.Lead).all()
+
+
+def delete_lead(db: Session, lead_id: int):
+    lead = db.query(models.Lead).filter(models.Lead.id == lead_id).first()
+    if lead:
+        db.delete(lead)
+        db.commit()
+        return True
+    return False

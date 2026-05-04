@@ -40,6 +40,15 @@ def get_leads(db: Session = Depends(get_db)):
     return crud.get_all_leads(db)
 
 
+# DELETE - Delete a lead
+@app.delete("/leads/{lead_id}")
+def delete_lead(lead_id: int, db: Session = Depends(get_db)):
+    success = crud.delete_lead(db, lead_id)
+    if not success:
+        raise HTTPException(status_code=404, detail="Lead not found")
+    return {"message": "Lead deleted successfully"}
+
+
 @app.post("/auth/login", response_model=schemas.TokenResponse)
 def login(user: schemas.UserLogin, db: Session = Depends(get_db)):
     db_user = db.query(models.User).filter(models.User.email == user.email).first()
