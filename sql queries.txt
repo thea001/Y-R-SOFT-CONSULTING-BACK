@@ -13,7 +13,7 @@ CREATE TABLE leads (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-
+// reconstruction
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) UNIQUE NOT NULL,
